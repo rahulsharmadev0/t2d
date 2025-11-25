@@ -1,11 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { Work } from './components/Work';
-import { Reviews } from './components/Reviews';
-import { FAQ } from './components/FAQ';
-import { ThemeProvider, useTheme } from './components/ThemeProvider';
+import { Hero, Services, Work, Reviews, FAQ, ThemeProvider, useTheme } from './components';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 
 function AppContent() {
