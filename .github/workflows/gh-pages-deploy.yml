@@ -33,8 +33,15 @@ jobs:
           # Extract the repo name for Vite base path so pages work under repo path
           REPO_NAME=${GITHUB_REPOSITORY#*/}
           echo "Repo name=${REPO_NAME}"
+          # If this repository is a user/organization pages repo (<owner>.github.io), use root base
+          if [[ "${REPO_NAME}" == *.github.io ]]; then
+            BASE='/'
+          else
+            BASE="/${REPO_NAME}/"
+          fi
+          echo "Using base=${BASE}"
           # Pass `base` so the build works for repo pages path (e.g., /t2d/)
-          npm run build -- --base=/${REPO_NAME}/
+          npm run build -- --base=${BASE}
 
       - name: Configure Pages
         uses: actions/configure-pages@v3
